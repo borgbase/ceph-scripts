@@ -41,6 +41,7 @@ def in_timeframe(start_time, end_time, current_time, allowed_days, current_day):
   return time_ok
 
 def measure_latency(test_pool):
+  return 0
   print "measure_latency: measuring 4kB write latency"
   latency = commands.getoutput("rados -p %s bench 10 write -t 1 -b 4096 2>/dev/null | egrep -i 'average latency' | awk '{print $3}'" % test_pool)
   latency_ms = 1000*float(latency)
